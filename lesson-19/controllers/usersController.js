@@ -44,7 +44,7 @@ module.exports = {
     res.render("users/new");
   },
 
-  create: (req, res) => {
+  create: (req, res, next) => {
     let userParams ={
       name: {
         first: req.body.first,
