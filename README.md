@@ -99,7 +99,7 @@ These files will need to be updated to complete the assignment. / 이 파일들�
 Any file that needs updated will have a `.TODO` in its extension. After updating the file, remove the `.TODO` from the extension. / 업데이트가 필요한 파일은 확장자에 `.TODO`가 있습니다. 파일을 업데이트한 후 확장자에서 `.TODO`를 제거하십시오.
 
 ```
-├── main.TODO.js (18과: usersController.indexView 추가, 19과: `new, create, show` 라우트 추가, 20과: `edit` 라우트 추가)
+├── main.js (18과: usersController.indexView 추가, 19과: `new, create, show` 라우트 추가, 20과: `edit` 라우트 추가)
 ├── package-lock.json
 ├── package.json
 │
