@@ -12,6 +12,20 @@ module.exports = {
   /*
    * @TODO: index과 indexView 액션을 객체 리터럴로 묶어 익스포트
    */
+    index: (req, res, next) => { //DB Action
+        User.find()
+            .then((users) => {
+                res.locals.users = users; // 응답 객체를 통해 다음 믿들웨어 함수로 사용자 전달
+                next();
+            })
+            .catch(error => {
+                console.log(`Error getting users: ${error.message}`);
+                next(error); // 에러를 캐치하고 다음 미들웨어로 전달
+            })
+    },
+    indexView: (req, res) => { //Page rendering
+        res.render("users/index"); // 분리된 액션으로 뷰 렌더링
+    }
 };
 
 /**

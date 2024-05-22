@@ -15,8 +15,14 @@ const express = require("express"), // express를 요청
  */
 const mongoose = require("mongoose"); // mongoose를 요청
 // 데이터베이스 연결 설정
-mongoose.connect("mongodb://127.0.0.1:27017/ut-nodejs", {
-  useNewUrlParser: true,
+mongoose.connect(
+    "mongodb+srv://jmllem:J0Mr5PUxBlcrlDio@jmllem.f6uraub.mongodb.net/?retryWrites=true&w=majority&appName=Jmllem/ut-node", // 데이터베이스 연결 설정 atlas 경로
+);
+
+mongoose.connection;
+const db = mongoose.connection;
+db.once("open", () => {
+    console.log("데이터베이스 연결 성공");
 });
 
 app.set("port", process.env.PORT || 3000);
@@ -57,6 +63,10 @@ app.get("/subscribers", subscribersController.getAllSubscribers); // 모든 구�
  * userController.js를 위에서 요청
  */
 // @TODO: index 라우트 생성
+app.get("/users", //경로
+    usersController.index, // DBAction
+    usersController.indexView // page rendering
+); // index 라우트 생성
 
 /**
  * Listing 12.12 (p. 184)
